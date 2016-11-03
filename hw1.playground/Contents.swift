@@ -17,15 +17,16 @@ class Words {
         self.wordA = wordA
         self.wordB = wordB
     }
-
-//: ### Are the values passed in to the **init** function and those set to the instance
-//: ### variables the same type? If not, why?
-
-
-//: [EXPLAIN YOUR ANSWER HERE]
-
-
-//: ## Q2: Variable Types and Function Types
+    
+    //: ### Are the values passed in to the **init** function and those set to the instance
+    //: ### variables the same type? If not, why?
+    
+    
+    //: [No. The parameter values are optionals, which means that they can either contain values of the said type (String) or nil.
+    //The instance variables are implicitly unwrapped optionals, which means that they should contain String values.]
+    
+    
+    //: ## Q2: Variable Types and Function Types
     func arePalindromes(_ words: [String]) -> Bool {
         let reversedWords = words.map() {String($0.characters.reversed())}
         let numElements = words.count
@@ -35,18 +36,19 @@ class Words {
                 return false
             }
         }
+        return true
     }
-//: ### Why does the compiler dislike the **for loop**? Fix it.
-//: ### What else is wrong with this function? You may have to refer to (but **not**
-//: ### change) the code at the very bottom. Debug the function.
-
-
-//: [EXPLAIN YOUR ANSWER HERE]
-
-
-//: ## Q3: More Functions and Object Initialization
+    //: ### Why does the compiler dislike the **for loop**? Fix it.
+    //: ### What else is wrong with this function? You may have to refer to (but **not**
+    //: ### change) the code at the very bottom. Debug the function.
+    
+    
+    //: [The function is supposed to return a Boolean, but if the for loop completes then nothing is returned. You need to add return true to the end of the function. ]
+    
+    
+    //: ## Q3: More Functions and Object Initialization
     class func isAnagram() -> Bool {
-        var countLetters : [Character : Int] //Line X
+        var countLetters : [Character : Int] = [:] //Line X
         var lenA = self.wordA.characters.count
         var lenB = self.wordB.characters.count
         
@@ -81,15 +83,16 @@ class Words {
             }
         }
         
-        return nil
+        return true
     }
-//: ### What is the problem with declaring **countLetters** as we do in **Line X**,
-//: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
-//: ### What else is wrong with this function? You may have to refer to (but **not**
-//: ### change) the code at the very bottom. Debug the function.
-
-
-//: [EXPLAIN YOUR ANSWER HERE]
+    //: ### What is the problem with declaring **countLetters** as we do in **Line X**,
+    //: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
+    //: ### What else is wrong with this function? You may have to refer to (but **not**
+    //: ### change) the code at the very bottom. Debug the function.
+    
+    
+    //: [In line X, an empty dictionary was not instantiated before referenced in line Y. The other issue with the code is that the function should return a Boolean but returns
+    //nil if the function completes.]
     
     
 }
